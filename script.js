@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerBtn = document.querySelector('.register-btn');
 
     // Replace this with your actual Google Apps Script Web App URL after deployment
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby6TNlgoI6XiHj4ftr_NTuSUdEWBF3NueRiNIVCX325Yl8MnzIrIbeNeZQB4Mv4NHLi/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPaQ0Ykat0qJigVKEBkKn23v697YwH8tebeKPGmi7NLON4E7n3-BZp6ATmQbhWsHpJrQ/exec';
 
     registrationForm.addEventListener('submit', async (e) => {
         e.preventDefault();
