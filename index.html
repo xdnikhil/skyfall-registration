@@ -1,0 +1,37 @@
+/**
+ * SKYFALL: Google Apps Script for Sheet Integration
+ * 1. Create a new Google Sheet.
+ * 2. Name your sheet headers exactly as:
+ *    timestamp, Name, Age, Email, Ph.Number, Team Name
+ * 3. Go to Extensions > Apps Script.
+ * 4. Replace everything in the script editor with THIS code.
+ * 5. Click "Deploy" > "New Deployment".
+ * 6. Select "Web App".
+ * 7. Set "Execute as: Me" and "Who has access: Anyone".
+ * 8. Copy the Web App URL and paste it into script.js in your project.
+ */
+
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    
+    // Extract parameters from form submission (supports multipart/form-data or application/x-www-form-urlencoded)
+    var name = e.parameter.name;
+    var age = e.parameter.age;
+    var email = e.parameter.email;
+    var phone = e.parameter.phone;
+    var teamName = e.parameter.teamName;
+    var timestamp = new Date();
+
+    // Append a new row to the sheet
+    sheet.appendRow([timestamp, name, age, email, phone, teamName]);
+
+    // Return success response (Note: Fetch from browser using 'no-cors' might not see this)
+    return ContentService.createTextOutput(JSON.stringify({result: "success"}))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({result: "error", message: err.message}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}

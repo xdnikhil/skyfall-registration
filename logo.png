@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyfall Registration - Kristu Jayanti (Deemed To Be University)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <main class="scroll-container">
+        <div class="scroll-inner">
+            <img src="Scroll.png" alt="Parchment Scroll" class="scroll-image">
+            <div class="form-overlay">
+                <header class="header">
+                    <img src="logo.png" alt="Skyfall Logo" class="event-logo">
+                    <p class="university">Kristu Jayanti (Deemed To Be University)</p>
+                    <p class="sub-header">Event Registration</p>
+                </header>
+                
+                <form id="registrationForm" class="registration-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="col">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" placeholder="Ex: 19" required min="16" max="99">
+                        </div>
+                        <div class="col">
+                            <label for="phone">Ph. Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="10-digit number" required pattern="[0-9]{10}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="personal@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="teamName">Team Name</label>
+                        <input type="text" id="teamName" name="teamName" placeholder="Your legendary team name" required>
+                    </div>
+                    
+                    <button type="submit" class="register-btn">PROCEED TO PAYMENT</button>
+                    <p id="formStatus" class="form-status"></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

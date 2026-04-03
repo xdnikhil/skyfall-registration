@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('sky_bg.png'); /* The high-quality sky background */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Cinzel', serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Background gradient overlay for extra depth */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(135, 206, 250, 0.2) 0%, rgba(25, 25, 112, 0.4) 100%);
+    z-index: -1;
+}
+
+.scroll-container {
+    width: 100%;
+    max-width: 850px; /* Increased from 650px */
+    position: relative;
+    padding: 20px;
+    z-index: 10;
+    animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.scroll-inner {
+    position: relative;
+    width: 100%;
+}
+
+.scroll-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+}
+
+.form-overlay {
+    position: absolute;
+    top: 15%; 
+    left: 20%; /* Pushed more inward to avoid jagged edges */
+    width: 60%; /* Mobile Responsiveness */
+    height: 68%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: hidden;
+    padding-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .logo-container img {
+        max-width: 250px;
+        margin-bottom: 5px;
+    }
+
+    .scroll-container {
+        width: 95%;
+        max-width: 500px;
+        margin: 10px auto;
+        /* Force a portrait view on mobile for the parchment */
+        height: 85vh; /* Fixed height to fit view */
+        aspect-ratio: auto;
+    }
+
+    .scroll-inner {
+        height: 100%;
+    }
+
+    .scroll-image {
+        height: 100%;
+        object-fit: fill; /* Allow vertical stretching to fit everything */
+    }
+
+    .form-overlay {
+        top: 15%;
+        left: 15%; 
+        width: 70%;
+        height: 70%;
+        padding-top: 5px;
+    }
+
+    .university {
+        font-size: 0.7rem;
+    }
+
+    .sub-header {
+        font-size: 0.85rem;
+        padding: 1px 5px;
+    }
+
+    .form-group.row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    label {
+        font-size: 0.75rem;
+        margin-bottom: 2px;
+    }
+
+    input {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+
+    .register-btn {
+        padding: 10px;
+        font-size: 0.95rem;
+        margin-top: 5px;
+    }
+
+    .form-status {
+        font-size: 0.75rem;
+    }
+}
+
+.form-overlay::-webkit-scrollbar {
+    width: 4px;
+}
+
+.form-overlay::-webkit-scrollbar-thumb {
+    background: #8b4513;
+    border-radius: 10px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 5px;
+    color: #4a2c0f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-logo {
+    width: 220px; /* Scaled back up slightly */
+    max-width: 85%;
+    height: auto;
+    margin-bottom: -5px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.university {
+    font-size: 0.75rem; /* Restored size */
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.sub-header {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.95rem; /* Restored size */
+    font-style: italic;
+    border-top: 1px solid #8b4513;
+    border-bottom: 1px solid #8b4513;
+    padding: 2px 10px;
+    display: inline-block;
+}
+
+.registration-form {
+    width: 100%;
+    padding: 0px 10px; /* Reduced internal padding to let form group width be natural */
+}
+
+.form-group {
+    margin-bottom: 10px; /* Balanced spacing */
+    text-align: left;
+}
+
+.form-group.row {
+    display: flex;
+    gap: 10px;
+}
+
+.col {
+    flex: 1;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem; /* Restored size */
+    font-weight: bold;
+    color: #4a2c0f;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+input {
+    width: 100%;
+    padding: 8px 12px; /* Restored padding */
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-bottom: 1.5px solid #8b4513;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1rem; /* Restored font size */
+    color: #2e1a0b;
+    outline: none;
+    transition: all 0.3s;
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.7);
+    border-bottom: 2px solid #cd853f;
+    box-shadow: 0 4px 10px rgba(139, 69, 19, 0.1);
+}
+
+::placeholder {
+    color: rgba(74, 44, 15, 0.5);
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 10px; /* Slightly more compact to save vertical space */
+    background: #4a2c0f;
+    color: #f5deb3;
+    border: none;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-top: 2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+}
+
+.register-btn:hover {
+    background: #8b4513;
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.register-btn:active {
+    transform: scale(0.98);
+}
+
+.form-status {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.success { color: #2d5a27; }
+.error { color: #8b0000; }
+
